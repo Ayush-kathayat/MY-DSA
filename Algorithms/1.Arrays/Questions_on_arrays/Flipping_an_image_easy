@@ -1,0 +1,78 @@
+
+// link to the question --> https://leetcode.com/problems/flipping-an-image/submissions/
+
+class Solution {
+public:
+    vector<vector<int>> flipAndInvertImage(vector<vector<int>>& image) 
+    {
+//       vector<vector<int>> image ;
+   
+//     int ans ;
+// 		for(int i = 0 ; i < 3 ; i++)
+// 		{
+// 		    vector <int> temp;          // cause its an vector inside a vector
+		    
+// 		    for(int j = 0 ; j < 3 ; j++)
+// 		    {
+// 		       cin >> ans;
+		       
+// 		       temp.push_back(ans);
+		        
+// 		    }
+		    
+// 		    image.push_back(temp);
+// 		    temp.clear();
+// 		}
+		
+		
+        vector<vector<int>> reverse;
+        
+        int k = image.size();
+        int h;
+        for(int i = 0 ; i < image.size() ; i++)         // cause its n*n
+        {
+            k = image.size();
+            vector <int> temp1;
+            for(int j = 0 ; j < image.size(); j++)
+            {
+                h = image[i][--k];
+                
+                temp1.push_back(h);
+            }
+            
+            reverse.push_back(temp1);
+            temp1.clear();
+        }
+        
+        
+        
+//         for(int i = 0 ; i < image.size() ; i++)         // cause its n*n
+//         {
+//             for(int j = 0 ; j < image.size(); j++)
+//             {
+//                 cout << reverse[i][j]<<" ";
+//             }
+//         }
+        
+        // now we have to invert too
+        int ans_1;
+        for(int  i = 0 ; i < image.size() ; i++)
+        {
+           
+            for(int j = 0 ; j < image.size(); j++)
+            {
+                if(reverse[i][j] == 0)
+                {
+                    reverse[i][j] = 1;
+                }
+                else
+                {
+                    reverse[i][j] = 0;
+                }
+                
+            }
+        }
+
+        return reverse;
+    }
+};
